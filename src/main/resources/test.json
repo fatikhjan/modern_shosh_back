@@ -1,0 +1,61 @@
+{
+  "ok": true,
+  "result": [
+    {
+      "update_id": 425668890,
+      "message": {
+        "message_id": 3,
+        "from": {
+          "id": 1681505177,
+          "is_bot": false,
+          "first_name": "Ali",
+          "username": "shaxrizod_dev",
+          "language_code": "en"
+        },
+        "chat": {
+          "id": 1681505177,
+          "first_name": "Ali",
+          "username": "shaxrizod_dev",
+          "type": "private"
+        },
+        "date": 1693290912,
+        "text": "/start",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 6,
+            "type": "bot_command"
+          }
+        ]
+      }
+    },
+    {
+      "update_id": 425668891,
+      "message": {
+        "message_id": 4,
+        "from": {
+          "id": 6275049379,
+          "is_bot": false,
+          "first_name": "MUHAMMAD FATIH",
+          "username": "Muhammad_ul_fotih",
+          "language_code": "en"
+        },
+        "chat": {
+          "id": 6275049379,
+          "first_name": "MUHAMMAD FATIH",
+          "username": "Muhammad_ul_fotih",
+          "type": "private"
+        },
+        "date": 1693290918,
+        "text": "/myid",
+        "entities": [
+          {
+            "offset": 0,
+            "length": 5,
+            "type": "bot_command"
+          }
+        ]
+      }
+    }
+  ]
+}
