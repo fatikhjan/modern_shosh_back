@@ -30,7 +30,9 @@ public class OrderService {
         orderRepository.save(order);
         int i = order.getComeTime().getYear() + 1900;
         int i1 = order.getGoTime().getYear() + 1900;
-        telegramService.sendMessage("Yangi buyurtma 🤑🤑\n" + " Bog'lanish uchun= " + order.getPhoneNumber() + "\nKattalar = " + order.getOlder() + "\nBolalar = " + order.getChild() + "\nkelish sanansi = " + i + "-yil " + order.getComeTime().getMonth() + "-oy " + order.getComeTime().getDate() + "-sana" + "\nketish sanasi = " + i1 + "-yil " + order.getGoTime().getMonth() + "-oy " + order.getGoTime().getDate() + "-sana" + "\nHonalar soni = " + order.getSizeOfRooms());
+        int i2 = order.getComeTime().getMonth() + 1;
+        int i3 = order.getGoTime().getMonth() + 1;
+        telegramService.sendMessage("Yangi buyurtma 🤑🤑\n" + " Bog'lanish uchun= " + order.getPhoneNumber() + "\nKattalar = " + order.getOlder() + "\nBolalar = " + order.getChild() + "\nkelish sanansi = " + i + "-yil " + i2 + "-oy " + order.getComeTime().getDate() + "-sana" + "\nketish sanasi = " + i1 + "-yil " + i3 + "-oy " + order.getGoTime().getDate() + "-sana" + "\nHonalar soni = " + order.getSizeOfRooms());
         return new ApiResponse("Buyurtmangiz muvaffaqiyatli saqlandi", true, 200);
     }
 
