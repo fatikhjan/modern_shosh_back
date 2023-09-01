@@ -4,6 +4,7 @@ import it.shoshapartment.Entity.Entity.Request;
 import it.shoshapartment.Entity.Pyload.ApiResponse;
 import it.shoshapartment.Entity.Pyload.RequestDto;
 import it.shoshapartment.Entity.Repository.RequestRepository;
+import it.shoshapartment.Entity.Service.TelegramService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpEntity;
@@ -20,6 +21,8 @@ public class RequestController {
 
     private final RequestRepository requestRepository;
 
+    private final TelegramService telegramService;
+
     @GetMapping
     public HttpEntity<?> getAll(){
         List<Request> all = requestRepository.findAll();
@@ -31,6 +34,7 @@ public class RequestController {
         Request build = Request.builder().phoneNumber(requestDto.phoneNumber()).build();
         build.setName(requestDto.name());
         requestRepository.save(build);
+        telegramService.sendMessage("Sizda yangi so'rovnoma mavjud\n" + "Bog'lanish uchun: " + requestDto.phoneNumber() + "\nIsmi: " + requestDto.name());
         return ResponseEntity.ok(new ApiResponse("saqlandi", true, 200));
     }
 
