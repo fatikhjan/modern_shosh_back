@@ -17,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1/api/request")
 @RequiredArgsConstructor
+@CrossOrigin
 public class RequestController {
 
     private final RequestRepository requestRepository;

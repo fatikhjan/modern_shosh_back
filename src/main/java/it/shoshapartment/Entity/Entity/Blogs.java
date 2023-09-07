@@ -29,13 +29,13 @@ public class Blogs  {
     @Column(name = "eng_name")
     private String engName;
 
-    @Column(length = 1000, name = "about_this_uz")
+    @Column(length = 10000, name = "about_this_uz")
     private String uzAbout;
 
-    @Column(length = 1000, name = "about_this_ru")
+    @Column(length = 10000, name = "about_this_ru")
     private String ruAbout;
 
-    @Column(length = 1000, name = "about_this_eng")
+    @Column(length = 10000, name = "about_this_eng")
     private String engAbout;
 
     private UUID photoId;
