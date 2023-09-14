@@ -13,6 +13,8 @@ public record OrderDto(
 
         Integer child,
 
-        Integer rooms_size
+        Integer rooms_size,
+
+        String lang
 ) {
 }

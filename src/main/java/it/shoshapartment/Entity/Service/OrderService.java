@@ -6,9 +6,6 @@ import it.shoshapartment.Entity.Pyload.OrderDto;
 import it.shoshapartment.Entity.Repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.concurrent.CompletableFuture;
 
 @Service
 @RequiredArgsConstructor
@@ -32,7 +29,8 @@ public class OrderService {
         int i1 = order.getGoTime().getYear() + 1900;
         int i2 = order.getComeTime().getMonth() + 1;
         int i3 = order.getGoTime().getMonth() + 1;
-        telegramService.sendMessage("Yangi buyurtma 🤑🤑\n" + " Bog'lanish uchun= " + order.getPhoneNumber() + "\nKattalar = " + order.getOlder() + "\nBolalar = " + order.getChild() + "\nkelish sanansi = " + i + "-yil " + i2 + "-oy " + order.getComeTime().getDate() + "-sana" + "\nketish sanasi = " + i1 + "-yil " + i3 + "-oy " + order.getGoTime().getDate() + "-sana" + "\nHonalar soni = " + order.getSizeOfRooms());
+        telegramService.sendMessage(orderDto.lang().equals("uzb") ? "Yangi buyurtma 🤑🤑\n" + " Bog'lanish uchun= " + order.getPhoneNumber() + "\nKattalar = " + order.getOlder() + "\nBolalar = " + order.getChild() + "\nKelish sanansi = " + i + "-yil " + i2 + "-oy " + order.getComeTime().getDate() + "-sana" + "\nKetish sanasi = " + i1 + "-yil " + i3 + "-oy " + order.getGoTime().getDate() + "-sana" + "\nXonalar soni = " + order.getSizeOfRooms() : orderDto.lang().equals("rus") ? "Новый заказ 🤑🤑\n" + "Контакт= " + order.getPhoneNumber() + "\nВзрослые = " + order.getOlder() + "\nДети = " + order.getChild() + "\nДата прибытия = " + i + "-год " + i2 + "-месяц " + order.getComeTime().getDate() + "-дата" + "\nДата выезда = " + i1 + "-год " + i3 + "-месяц " + order.getGoTime().getDate() + "-дата" + "\nКоличество комнат = " + order.getSizeOfRooms()
+                : "New order 🤑🤑\n" + "Contact= " + order.getPhoneNumber() + "\nAdults = " + order.getOlder() + "\nChildren = " + order.getChild() + "\nArrival date = " + i + "-year " + i2 + "-month " + order.getComeTime().getDate() + "-date" + "\nDate of departure = " + i1 + "-year " + i3 + "-month " + order.getGoTime().getDate() + "-date" + "\nNumber of rooms = " + order.getSizeOfRooms());
         return new ApiResponse("Buyurtmangiz muvaffaqiyatli saqlandi", true, 200);
     }
 
