@@ -1,10 +1,7 @@
 package it.shoshapartment.Entity.Entity;
 
-import it.shoshapartment.Entity.Entity.template.AbsNameEntity;
 import jakarta.persistence.*;
-import jdk.jfr.Enabled;
 import lombok.*;
-import org.hibernate.query.sqm.produce.function.StandardFunctionReturnTypeResolvers;
 
 import java.util.UUID;
 
@@ -20,22 +17,22 @@ public class Blogs  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "uz_name")
+    @Column(name = "uz_name", length = 10000)
     private String name;
 
-    @Column(name = "ru_name")
+    @Column(name = "ru_name", length = 10000)
     private String ruName;
 
-    @Column(name = "eng_name")
+    @Column(name = "eng_name", length = 10000)
     private String engName;
 
-    @Column(length = 10000, name = "about_this_uz")
+    @Column(length = 30000, name = "about_this_uz")
     private String uzAbout;
 
-    @Column(length = 10000, name = "about_this_ru")
+    @Column(length = 30000, name = "about_this_ru")
     private String ruAbout;
 
-    @Column(length = 10000, name = "about_this_eng")
+    @Column(length = 30000, name = "about_this_eng")
     private String engAbout;
 
     private UUID photoId;
